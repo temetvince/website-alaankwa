@@ -22,20 +22,27 @@ const App: React.FC = () => {
    // State to track the current page number
    const [currentPage, setCurrentPage] = useState<number>(1);
 
-   // Get the array of pages from the Pages module
-   const pages: Page[] = getPages(setCurrentPage);
-
-   // Calculate the total number of pages
-   const totalPages: number = pages.length;
-
    /**
-    * Navigates to a specific page while ensuring the page number
-    * is within the valid range (1 to totalPages).
+    * Navigates to the specified page number.
+    * If a function is provided, it will receive the previous page number.
+    * The page number will be clamped to the range [1, totalPages].
+    * If the page number is out of range, it will be clamped to the nearest valid page.
+    * If the page number is already the current page, nothing will happen.
+    * If the page number is the same as the current page, the page will scroll to the top.
+    * If the page number is different from the current page, the page will scroll to the top.
     *
-    * @param pageNumber - The page number to navigate to
+    * @param pageNumber The page number to navigate to, or a function that receives the previous page number.
     */
-   const navigateToPage = (pageNumber: number) => {
-      setCurrentPage(Math.max(1, Math.min(pageNumber, totalPages)));
+   const navigateToPage = (
+      pageNumber: number | ((prevState: number) => number),
+   ) => {
+      if (typeof pageNumber === "number") {
+         setCurrentPage(Math.max(1, Math.min(pageNumber, totalPages)));
+      } else {
+         setCurrentPage((prevState) =>
+            Math.max(1, Math.min(pageNumber(prevState), totalPages)),
+         );
+      }
 
       // Scroll to the top of the page when navigating
       window.scrollTo({
@@ -43,6 +50,12 @@ const App: React.FC = () => {
          behavior: "auto",
       });
    };
+
+   // Get the array of pages from the Pages module
+   const pages: Page[] = getPages(navigateToPage);
+
+   // Calculate the total number of pages
+   const totalPages: number = pages.length;
 
    /**
     * Advances to the next page, unless already on the last page.
@@ -88,7 +101,7 @@ const App: React.FC = () => {
             {/* Button to return to the Table of Contents */}
             <button
                id="toc-button"
-               onClick={() => setCurrentPage(1)}
+               onClick={() => navigateToPage(1)}
                aria-label="Go to Table of Contents"
             >
                <div className="button-label">TOC</div>
