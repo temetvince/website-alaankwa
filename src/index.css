@@ -2,12 +2,17 @@
 :root {
    --primary-color: #ffa058;
    --secondary-color: #1f1f1f;
+   --accent-color: #ff7a33;
+   --text-color: #e0e0e0;
+   --background-color: #121212;
    --success-color: #00b894;
    --danger-color: #d63031;
    --warning-color: #f39c12;
    --info-color: #0984e3;
    --light-color: #f1f2f6;
    --dark-color: #2d3436;
+   --border-color: #333;
+   --shadow-color: rgba(0, 0, 0, 0.5);
 }
 
 /* General Styles */
@@ -16,8 +21,8 @@ body {
    line-height: 1.75;
    margin: 0;
    padding: 0;
-   background-color: #121212;
-   color: #e0e0e0;
+   background-color: var(--background-color);
+   color: var(--text-color);
    transition: all 0.3s ease;
    background-image: radial-gradient(
          var(--secondary-color),
@@ -56,11 +61,11 @@ body {
    max-width: 900px;
    margin: 40px auto;
    padding: 30px;
-   background-color: #1f1f1f;
-   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+   background-color: var(--secondary-color);
+   box-shadow: 0 4px 20px var(--shadow-color);
    border-radius: 8px;
    transition: all 0.3s ease;
-   border: var(--success-color) 2px solid;
+   border: 2px solid var(--success-color);
 }
 
 /* Headings */
@@ -68,7 +73,7 @@ h1 {
    font-size: 3em;
    text-align: center;
    margin-bottom: 15px;
-   color: #ffa058;
+   color: var(--primary-color);
    font-weight: 700;
    text-transform: uppercase;
    letter-spacing: 1.5px;
@@ -85,16 +90,16 @@ h1 small {
 h2 {
    font-size: 2.25em;
    margin-top: 40px;
-   border-bottom: 3px solid #ffa058;
+   border-bottom: 3px solid var(--primary-color);
    padding-bottom: 15px;
-   color: #ffa058;
+   color: var(--primary-color);
    text-transform: uppercase;
 }
 
 h3 {
    font-size: 1.75em;
    margin-top: 30px;
-   color: #ffab73;
+   color: var(--accent-color);
 }
 
 h4 {
@@ -126,22 +131,22 @@ li {
 /* Code Blocks */
 code {
    background-color: #2e2e2e;
-   border: 1px solid #444;
+   border: 1px solid var(--border-color);
    padding: 4px 8px;
    border-radius: 4px;
-   color: #ffa058;
+   color: var(--primary-color);
    font-family: "Courier New", Courier, monospace;
 }
 
 /* Links */
 a {
-   color: #ffa058;
+   color: var(--primary-color);
    text-decoration: none;
    transition: color 0.2s ease;
 }
 
 a:hover {
-   color: #ff7a33;
+   color: var(--accent-color);
    text-decoration: underline;
 }
 
@@ -149,34 +154,34 @@ a:hover {
 hr {
    border: 0;
    height: 2px;
-   background: #ffa058;
+   background: var(--primary-color);
    margin: 50px 0;
 }
 
 /* Table of Contents */
 ol a {
    font-size: 1.1em;
-   color: #ffab73;
+   color: var(--accent-color);
 }
 
 ol a:hover {
-   color: #ff7a33;
+   color: var(--accent-color);
 }
 
 /* Special Text Classes */
 .tip {
    background-color: #292929;
-   border-left: 8px solid #ffa058;
+   border-left: 8px solid var(--primary-color);
    padding: 15px;
    margin: 30px 0;
    border-radius: 4px;
-   color: #ffab73;
+   color: var(--accent-color);
    font-style: italic;
 }
 
 .author {
    font-size: 1.1em;
-   color: #ffab73;
+   color: var(--accent-color);
    text-align: center;
 }
 
@@ -185,24 +190,24 @@ table {
    width: 100%;
    border-collapse: collapse;
    margin: 30px 0;
-   background-color: #1f1f1f;
+   background-color: var(--secondary-color);
    border-radius: 8px;
    overflow: hidden;
-   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+   box-shadow: 0 4px 15px var(--shadow-color);
 }
 
 th,
 td {
-   border: 1px solid #333;
+   border: 1px solid var(--border-color);
    padding: 12px;
    text-align: center;
    font-size: 1em;
-   color: #d1d1d1;
+   color: var(--text-color);
 }
 
 th {
-   background-color: #ffa058;
-   color: #121212;
+   background-color: var(--primary-color);
+   color: var(--background-color);
    font-weight: bold;
 }
 
@@ -217,7 +222,95 @@ tr:nth-child(even) td {
 /* Emphasized Text */
 em {
    font-style: italic;
-   color: #ffab73;
+   color: var(--accent-color);
+}
+
+/* Table of Contents Buttons */
+ol button {
+   background-color: transparent;
+   border: none;
+   color: var(--accent-color);
+   cursor: pointer;
+   font-size: 1.1em;
+   text-align: left;
+   width: 100%;
+   padding: 5px 0;
+   transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
+}
+
+ol button:hover {
+   color: var(--accent-color);
+   background-color: rgba(255, 255, 255, 0.1);
+   text-decoration: underline;
+}
+
+/* Pagination Buttons */
+.pagination {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-top: 20px;
+}
+
+.pagination button {
+   background-color: var(--primary-color);
+   border: none;
+   border-radius: 4px;
+   color: var(--background-color);
+   cursor: pointer;
+   font-size: 1em;
+   padding: 8px 16px;
+   transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+}
+
+.pagination button:hover {
+   background-color: var(--accent-color);
+   color: #ffffff;
+}
+
+.pagination button:disabled {
+   background-color: #b3b3b3;
+   color: #666666;
+   cursor: not-allowed;
+}
+
+.pagination span {
+   color: #d1d1d1;
+   font-size: 1em;
+}
+
+/* Table of Contents Button */
+#toc-button {
+   position: fixed;
+   top: 20px;
+   right: 20px;
+   background-color: var(--primary-color);
+   color: var(--background-color);
+   border: none;
+   border-radius: 50%;
+   width: 60px;
+   height: 60px;
+   font-size: 1.2em;
+   font-weight: bold;
+   cursor: pointer;
+   box-shadow: 0 4px 10px var(--shadow-color);
+   transition:
+      background-color 0.2s ease,
+      transform 0.2s ease;
+   z-index: 1000; /* Ensure it stays on top of other elements */
+}
+
+#toc-button:hover {
+   background-color: var(--accent-color);
+   transform: scale(1.1);
+}
+
+#toc-button:focus {
+   outline: none;
 }
 
 /* Responsive Design */
@@ -225,6 +318,10 @@ em {
    .container {
       padding: 20px;
       margin: 20px;
+   }
+
+   .pagination {
+      padding-right: 0;
    }
 
    h1 {
@@ -241,5 +338,12 @@ em {
 
    h4 {
       font-size: 1.25em;
+   }
+
+   #toc-button {
+      top: 10px;
+      right: 10px;
+      width: 50px;
+      height: 50px;
    }
 }
