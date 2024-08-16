@@ -53,8 +53,8 @@ const App: React.FC = () => {
    };
 
    return (
-      <>
-      <div className="App container">
+      <div className="root">
+         <div className="container">
          {/* Render the current page content */}
          {pages[currentPage - 1].content}
 
@@ -88,8 +88,9 @@ const App: React.FC = () => {
             TOC
          </button>
       </div>
+      
       <Footer />
-      </>
+      </div>
    );
 };
 

@@ -57,6 +57,12 @@ body {
       70px 100px;
 }
 
+.root {
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+}
+
 /* Container */
 .container {
    max-width: 900px;
