@@ -36,6 +36,12 @@ const App: React.FC = () => {
     */
    const navigateToPage = (pageNumber: number) => {
       setCurrentPage(Math.max(1, Math.min(pageNumber, totalPages)));
+
+      // Scroll to the top of the page when navigating
+      window.scrollTo({
+         top: 0,
+         behavior: "auto",
+      });
    };
 
    /**
@@ -85,7 +91,7 @@ const App: React.FC = () => {
                onClick={() => setCurrentPage(1)}
                aria-label="Go to Table of Contents"
             >
-               TOC
+               <div className="button-label">TOC</div>
             </button>
          </div>
 

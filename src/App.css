@@ -293,6 +293,9 @@ ol button:hover {
 
 /* Table of Contents Button */
 #toc-button {
+   display: flex;
+   justify-content: center;
+   align-items: center;
    position: fixed;
    top: 20px;
    right: 20px;
