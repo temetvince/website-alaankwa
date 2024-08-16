@@ -8,14 +8,7 @@ function App() {
             <br />
             <small>A Primer for Wormhole Dwelling</small>
          </h1>
-         <h3>by Lance Westar</h3>
-         <p>
-            <em>
-               Date:{" "}
-               <script>document.write(new Date().toLocaleDateString());</script>
-            </em>
-         </p>
-
+         <h3 className="author">by Lance Westar</h3>
          <h2>Table of Contents</h2>
          <ol>
             <li>
@@ -702,32 +695,36 @@ function App() {
             to tailor your offensive strategy for maximum effectiveness:
          </p>
          <table>
-            <tr>
-               <th>Faction</th>
-               <th>Primary Weakness</th>
-               <th>Secondary Weakness</th>
-            </tr>
-            <tr>
-               <td>Amarr</td>
-               <td>Thermal damage</td>
-               <td>EM damage</td>
-            </tr>
-            <tr>
-               <td>Caldari</td>
-               <td>EM damage</td>
-               <td>Explosive damage</td>
-            </tr>
-            <tr>
-               <td>Gallente</td>
-               <td>Explosive damage</td>
-               <td>EM damage</td>
-            </tr>
-            <tr>
-               <td>Minmatar</td>
-               <td>Kinetic damage</td>
-               <td>Explosive damage</td>
-            </tr>
-         </table>
+  <thead>
+    <tr>
+      <th>Faction</th>
+      <th>Primary Weakness</th>
+      <th>Secondary Weakness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Amarr</td>
+      <td>Thermal damage</td>
+      <td>EM damage</td>
+    </tr>
+    <tr>
+      <td>Caldari</td>
+      <td>EM damage</td>
+      <td>Explosive damage</td>
+    </tr>
+    <tr>
+      <td>Gallente</td>
+      <td>Explosive damage</td>
+      <td>EM damage</td>
+    </tr>
+    <tr>
+      <td>Minmatar</td>
+      <td>Kinetic damage</td>
+      <td>Explosive damage</td>
+    </tr>
+  </tbody>
+</table>
 
          <h2 id="conclusion">Conclusion</h2>
          <p>
