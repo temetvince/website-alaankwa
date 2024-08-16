@@ -304,6 +304,7 @@ ol button:hover {
    height: 60px;
    font-size: 1.2em;
    font-weight: bold;
+   text-align: center;
    cursor: pointer;
    box-shadow: 0 4px 10px var(--shadow-color);
    transition:
