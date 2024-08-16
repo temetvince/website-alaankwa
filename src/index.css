@@ -1,0 +1,196 @@
+/* General Styles */
+body {
+   font-family: "Roboto", sans-serif;
+   line-height: 1.75;
+   margin: 0;
+   padding: 0;
+   background-color: #121212;
+   color: #e0e0e0;
+   transition: all 0.3s ease;
+}
+
+/* Container */
+.container {
+   max-width: 900px;
+   margin: 40px auto;
+   padding: 30px;
+   background-color: #1f1f1f;
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+   border-radius: 8px;
+   transition: all 0.3s ease;
+}
+
+/* Headings */
+h1 {
+   font-size: 3em;
+   text-align: center;
+   margin-bottom: 15px;
+   color: #ffa058;
+   font-weight: 700;
+   text-transform: uppercase;
+   letter-spacing: 1.5px;
+}
+
+h1 small {
+   font-size: 0.5em;
+   display: block;
+   margin-top: 10px;
+   font-weight: 300;
+   color: #e0e0e0;
+}
+
+h2 {
+   font-size: 2.25em;
+   margin-top: 40px;
+   border-bottom: 3px solid #ffa058;
+   padding-bottom: 15px;
+   color: #ffa058;
+   text-transform: uppercase;
+}
+
+h3 {
+   font-size: 1.75em;
+   margin-top: 30px;
+   color: #ffab73;
+}
+
+h4 {
+   font-size: 1.5em;
+   margin-top: 25px;
+   color: #ffc18e;
+}
+
+/* Paragraphs */
+p {
+   margin: 20px 0;
+   font-size: 1.1em;
+   color: #bdbdbd;
+}
+
+/* Lists */
+ol,
+ul {
+   margin-left: 25px;
+   margin-bottom: 25px;
+}
+
+li {
+   margin-bottom: 12px;
+   font-size: 1.05em;
+   color: #d1d1d1;
+}
+
+/* Code Blocks */
+code {
+   background-color: #2e2e2e;
+   border: 1px solid #444;
+   padding: 4px 8px;
+   border-radius: 4px;
+   color: #ffa058;
+   font-family: "Courier New", Courier, monospace;
+}
+
+/* Links */
+a {
+   color: #ffa058;
+   text-decoration: none;
+   transition: color 0.2s ease;
+}
+
+a:hover {
+   color: #ff7a33;
+   text-decoration: underline;
+}
+
+/* Horizontal Rule */
+hr {
+   border: 0;
+   height: 2px;
+   background: #ffa058;
+   margin: 50px 0;
+}
+
+/* Table of Contents */
+ol a {
+   font-size: 1.1em;
+   color: #ffab73;
+}
+
+ol a:hover {
+   color: #ff7a33;
+}
+
+/* Special Text Classes */
+.tip {
+   background-color: #292929;
+   border-left: 8px solid #ffa058;
+   padding: 15px;
+   margin: 30px 0;
+   border-radius: 4px;
+   color: #ffab73;
+   font-style: italic;
+}
+
+/* Table Styles */
+table {
+   width: 100%;
+   border-collapse: collapse;
+   margin: 30px 0;
+   background-color: #1f1f1f;
+   border-radius: 8px;
+   overflow: hidden;
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+th,
+td {
+   border: 1px solid #333;
+   padding: 12px;
+   text-align: center;
+   font-size: 1em;
+   color: #d1d1d1;
+}
+
+th {
+   background-color: #ffa058;
+   color: #121212;
+   font-weight: bold;
+}
+
+td {
+   background-color: #2e2e2e;
+}
+
+tr:nth-child(even) td {
+   background-color: #242424;
+}
+
+/* Emphasized Text */
+em {
+   font-style: italic;
+   color: #ffab73;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+   .container {
+      padding: 20px;
+      margin: 20px;
+   }
+
+   h1 {
+      font-size: 2em;
+   }
+
+   h2 {
+      font-size: 1.75em;
+   }
+
+   h3 {
+      font-size: 1.5em;
+   }
+
+   h4 {
+      font-size: 1.25em;
+   }
+}
