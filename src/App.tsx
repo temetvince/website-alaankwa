@@ -55,41 +55,41 @@ const App: React.FC = () => {
    return (
       <div className="root">
          <div className="container">
-         {/* Render the current page content */}
-         {pages[currentPage - 1].content}
+            {/* Render the current page content */}
+            {pages[currentPage - 1].content}
 
-         {/* Pagination controls */}
-         <div className="pagination">
+            {/* Pagination controls */}
+            <div className="pagination">
+               <button
+                  onClick={handlePrevPage}
+                  disabled={currentPage === 1}
+                  aria-label="Previous Page"
+               >
+                  Previous
+               </button>
+               <span>
+                  Page {currentPage} of {totalPages}
+               </span>
+               <button
+                  onClick={handleNextPage}
+                  disabled={currentPage === totalPages}
+                  aria-label="Next Page"
+               >
+                  Next
+               </button>
+            </div>
+
+            {/* Button to return to the Table of Contents */}
             <button
-               onClick={handlePrevPage}
-               disabled={currentPage === 1}
-               aria-label="Previous Page"
+               id="toc-button"
+               onClick={() => setCurrentPage(1)}
+               aria-label="Go to Table of Contents"
             >
-               Previous
-            </button>
-            <span>
-               Page {currentPage} of {totalPages}
-            </span>
-            <button
-               onClick={handleNextPage}
-               disabled={currentPage === totalPages}
-               aria-label="Next Page"
-            >
-               Next
+               TOC
             </button>
          </div>
 
-         {/* Button to return to the Table of Contents */}
-         <button
-            id="toc-button"
-            onClick={() => setCurrentPage(1)}
-            aria-label="Go to Table of Contents"
-         >
-            TOC
-         </button>
-      </div>
-      
-      <Footer />
+         <Footer />
       </div>
    );
 };
