@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import "./Footer.css";
+import './Footer.css';
 
 /**
  * Footer component for the application.
@@ -9,20 +9,20 @@ import "./Footer.css";
  * The footer is styled using the external Footer.css file.
  */
 const Footer: React.FC = () => {
-   return (
-      <footer className="footer">
-         <p>
-            <a
-               href="https://github.com/temetvince/eve-wormhole-primer/blob/main/WormholePrimer.pdf"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Download the Wormhole Primer PDF"
-            >
-               Download the PDF!
-            </a>
-         </p>
-      </footer>
-   );
+  return (
+    <footer className='footer'>
+      <p>
+        <a
+          href='https://github.com/temetvince/eve-wormhole-primer/blob/main/WormholePrimer.pdf'
+          target='_blank'
+          rel='noopener noreferrer'
+          aria-label='Download the Wormhole Primer PDF'
+        >
+          Download the PDF!
+        </a>
+      </p>
+    </footer>
+  );
 };
 
 export default Footer;

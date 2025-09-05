@@ -3,28 +3,22 @@
     "target": "ESNext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "allowImportingTsExtensions": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "newLine": "LF",
-    "typeRoots": ["./node_modules/@types", "./src/**/@types"],
-
-    // Generate sourcemap files for debugging
-    "sourceMap": true,
-
-    // Needed to compile
-    "types" : ["react", "react-dom"]
+    "typeRoots": ["./node_modules/@types"],
+    "sourceMap": true
   },
-  "include": ["src/**/*.ts*", "src/index.js"],
-  "exclude": ["node_modules", "src/**/*.spec.*ts*"]
+  "include": ["src"],
+  "exclude": ["node_modules", "src/**/*.spec.ts"]
 }

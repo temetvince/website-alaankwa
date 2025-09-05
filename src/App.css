@@ -1,361 +1,362 @@
 /* Variables */
 :root {
-   --primary-color: #ffa058;
-   --secondary-color: #1f1f1f;
-   --accent-color: #ff7a33;
-   --text-color: #e0e0e0;
-   --background-color: #121212;
-   --success-color: #00b894;
-   --danger-color: #d63031;
-   --warning-color: #f39c12;
-   --info-color: #0984e3;
-   --light-color: #f1f2f6;
-   --dark-color: #2d3436;
-   --border-color: #333;
-   --shadow-color: rgba(0, 0, 0, 0.5);
+  --primary-color: #ffa058;
+  --secondary-color: #1f1f1f;
+  --accent-color: #ff7a33;
+  --text-color: #e0e0e0;
+  --background-color: #121212;
+  --success-color: #00b894;
+  --danger-color: #d63031;
+  --warning-color: #f39c12;
+  --info-color: #0984e3;
+  --light-color: #f1f2f6;
+  --dark-color: #2d3436;
+  --border-color: #333;
+  --shadow-color: rgba(0, 0, 0, 0.5);
 }
 
 /* General Styles */
 body {
-   font-family: "Roboto", sans-serif;
-   line-height: 1.75;
-   margin: 0;
-   padding: 0;
-   height: auto;
-   min-height: 100vh;
-   background-color: var(--background-color);
-   color: var(--text-color);
-   transition: all 0.3s ease;
-   background-image: radial-gradient(
-         var(--secondary-color),
-         rgba(255, 255, 255, 0.2) 5px,
-         transparent 40px
-      ),
-      radial-gradient(
-         var(--success-color),
-         rgba(255, 255, 255, 0.15) 1px,
-         transparent 30px
-      ),
-      radial-gradient(
-         var(--success-color),
-         rgba(255, 255, 255, 0.1) 2px,
-         transparent 40px
-      ),
-      radial-gradient(
-         rgba(255, 255, 255, 0.4),
-         rgba(255, 255, 255, 0.1) 2px,
-         transparent 30px
-      );
-   background-size:
-      550px 550px,
-      350px 350px,
-      250px 250px,
-      150px 150px;
-   background-position:
-      0 0,
-      40px 60px,
-      130px 270px,
-      70px 100px;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.75;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  background-image:
+    radial-gradient(
+      var(--secondary-color),
+      rgba(255, 255, 255, 0.2) 5px,
+      transparent 40px
+    ),
+    radial-gradient(
+      var(--success-color),
+      rgba(255, 255, 255, 0.15) 1px,
+      transparent 30px
+    ),
+    radial-gradient(
+      var(--success-color),
+      rgba(255, 255, 255, 0.1) 2px,
+      transparent 40px
+    ),
+    radial-gradient(
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.1) 2px,
+      transparent 30px
+    );
+  background-size:
+    550px 550px,
+    350px 350px,
+    250px 250px,
+    150px 150px;
+  background-position:
+    0 0,
+    40px 60px,
+    130px 270px,
+    70px 100px;
 }
 
 .root {
-   display: flex;
-   flex-direction: column;
-   height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 /* Container */
 .container {
-   max-width: 900px;
-   margin: 40px auto;
-   padding: 30px;
-   background-color: var(--secondary-color);
-   box-shadow: 0 4px 20px var(--shadow-color);
-   border-radius: 8px;
-   transition: all 0.3s ease;
-   border: 2px solid var(--success-color);
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: var(--secondary-color);
+  box-shadow: 0 4px 20px var(--shadow-color);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--success-color);
 }
 
 /* Headings */
 h1 {
-   font-size: 3em;
-   text-align: center;
-   margin-bottom: 15px;
-   color: var(--primary-color);
-   font-weight: 700;
-   text-transform: uppercase;
-   letter-spacing: 1.5px;
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
 h1 small {
-   font-size: 0.5em;
-   display: block;
-   margin-top: 10px;
-   font-weight: 300;
-   color: #d1d1d1;
+  font-size: 0.5em;
+  display: block;
+  margin-top: 10px;
+  font-weight: 300;
+  color: #d1d1d1;
 }
 
 h2 {
-   font-size: 2.25em;
-   margin-top: 40px;
-   border-bottom: 3px solid var(--primary-color);
-   padding-bottom: 15px;
-   color: var(--primary-color);
-   text-transform: uppercase;
+  font-size: 2.25em;
+  margin-top: 40px;
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 15px;
+  color: var(--primary-color);
+  text-transform: uppercase;
 }
 
 h3 {
-   font-size: 1.75em;
-   margin-top: 30px;
-   color: var(--accent-color);
+  font-size: 1.75em;
+  margin-top: 30px;
+  color: var(--accent-color);
 }
 
 h4 {
-   font-size: 1.5em;
-   margin-top: 25px;
-   color: #ffc18e;
+  font-size: 1.5em;
+  margin-top: 25px;
+  color: #ffc18e;
 }
 
 /* Paragraphs */
 p {
-   margin: 20px 0;
-   font-size: 1.1em;
-   color: #d1d1d1;
+  margin: 20px 0;
+  font-size: 1.1em;
+  color: #d1d1d1;
 }
 
 /* Lists */
 ol,
 ul {
-   margin-left: 25px;
-   margin-bottom: 25px;
+  margin-left: 25px;
+  margin-bottom: 25px;
 }
 
 li {
-   margin-bottom: 12px;
-   font-size: 1.05em;
-   color: #d1d1d1;
+  margin-bottom: 12px;
+  font-size: 1.05em;
+  color: #d1d1d1;
 }
 
 /* Code Blocks */
 code {
-   background-color: #2e2e2e;
-   border: 1px solid var(--border-color);
-   padding: 4px 8px;
-   border-radius: 4px;
-   color: var(--primary-color);
-   font-family: "Courier New", Courier, monospace;
+  background-color: #2e2e2e;
+  border: 1px solid var(--border-color);
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: var(--primary-color);
+  font-family: 'Courier New', Courier, monospace;
 }
 
 /* Links */
 a {
-   color: var(--primary-color);
-   text-decoration: none;
-   transition: color 0.2s ease;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-   color: var(--accent-color);
-   text-decoration: underline;
+  color: var(--accent-color);
+  text-decoration: underline;
 }
 
 /* Horizontal Rule */
 hr {
-   border: 0;
-   height: 2px;
-   background: var(--primary-color);
-   margin: 50px 0;
+  border: 0;
+  height: 2px;
+  background: var(--primary-color);
+  margin: 50px 0;
 }
 
 /* Table of Contents */
 ol a {
-   font-size: 1.1em;
-   color: var(--accent-color);
+  font-size: 1.1em;
+  color: var(--accent-color);
 }
 
 ol a:hover {
-   color: var(--accent-color);
+  color: var(--accent-color);
 }
 
 /* Special Text Classes */
 .tip {
-   background-color: #292929;
-   border-left: 8px solid var(--primary-color);
-   padding: 15px;
-   margin: 30px 0;
-   border-radius: 4px;
-   color: var(--accent-color);
-   font-style: italic;
+  background-color: #292929;
+  border-left: 8px solid var(--primary-color);
+  padding: 15px;
+  margin: 30px 0;
+  border-radius: 4px;
+  color: var(--accent-color);
+  font-style: italic;
 }
 
 .author {
-   font-size: 1.1em;
-   color: var(--accent-color);
-   text-align: center;
+  font-size: 1.1em;
+  color: var(--accent-color);
+  text-align: center;
 }
 
 /* Table Styles */
 table {
-   width: 100%;
-   border-collapse: collapse;
-   margin: 30px 0;
-   background-color: var(--secondary-color);
-   border-radius: 8px;
-   overflow: hidden;
-   box-shadow: 0 4px 15px var(--shadow-color);
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px 0;
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px var(--shadow-color);
 }
 
 th,
 td {
-   border: 1px solid var(--border-color);
-   padding: 12px;
-   text-align: center;
-   font-size: 1em;
-   color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 12px;
+  text-align: center;
+  font-size: 1em;
+  color: var(--text-color);
 }
 
 th {
-   background-color: var(--primary-color);
-   color: var(--background-color);
-   font-weight: bold;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  font-weight: bold;
 }
 
 td {
-   background-color: #2e2e2e;
+  background-color: #2e2e2e;
 }
 
 tr:nth-child(even) td {
-   background-color: #242424;
+  background-color: #242424;
 }
 
 /* Emphasized Text */
 em {
-   font-style: italic;
-   color: var(--accent-color);
+  font-style: italic;
+  color: var(--accent-color);
 }
 
 /* Table of Contents Buttons */
 ol button {
-   background-color: transparent;
-   border: none;
-   color: var(--accent-color);
-   cursor: pointer;
-   font-size: 1.1em;
-   text-align: left;
-   width: 100%;
-   padding: 5px 0;
-   transition:
-      color 0.2s ease,
-      background-color 0.2s ease;
+  background-color: transparent;
+  border: none;
+  color: var(--accent-color);
+  cursor: pointer;
+  font-size: 1.1em;
+  text-align: left;
+  width: 100%;
+  padding: 5px 0;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
 }
 
 ol button:hover {
-   color: var(--accent-color);
-   background-color: rgba(255, 255, 255, 0.1);
-   text-decoration: underline;
+  color: var(--accent-color);
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: underline;
 }
 
 /* Pagination Buttons */
 .pagination {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .pagination button {
-   background-color: var(--primary-color);
-   border: none;
-   border-radius: 4px;
-   color: var(--background-color);
-   cursor: pointer;
-   font-size: 1em;
-   padding: 8px 16px;
-   transition:
-      background-color 0.2s ease,
-      color 0.2s ease;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  color: var(--background-color);
+  cursor: pointer;
+  font-size: 1em;
+  padding: 8px 16px;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .pagination button:hover {
-   background-color: var(--accent-color);
-   color: #ffffff;
+  background-color: var(--accent-color);
+  color: #ffffff;
 }
 
 .pagination button:disabled {
-   background-color: #b3b3b3;
-   color: #666666;
-   cursor: not-allowed;
+  background-color: #b3b3b3;
+  color: #666666;
+  cursor: not-allowed;
 }
 
 .pagination span {
-   color: #d1d1d1;
-   font-size: 1em;
+  color: #d1d1d1;
+  font-size: 1em;
 }
 
 /* Table of Contents Button */
 #toc-button {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   position: fixed;
-   top: 20px;
-   right: 20px;
-   background-color: var(--primary-color);
-   color: var(--background-color);
-   border: none;
-   border-radius: 50%;
-   width: 60px;
-   height: 60px;
-   font-size: 1.2em;
-   font-weight: bold;
-   text-align: center;
-   cursor: pointer;
-   box-shadow: 0 4px 10px var(--shadow-color);
-   transition:
-      background-color 0.2s ease,
-      transform 0.2s ease;
-   z-index: 1000; /* Ensure it stays on top of other elements */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+  z-index: 1000; /* Ensure it stays on top of other elements */
 }
 
 #toc-button:hover {
-   background-color: var(--accent-color);
-   transform: scale(1.1);
+  background-color: var(--accent-color);
+  transform: scale(1.1);
 }
 
 #toc-button:focus {
-   outline: none;
+  outline: none;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-   .container {
-      padding: 20px;
-      margin: 20px;
-   }
+  .container {
+    padding: 20px;
+    margin: 20px;
+  }
 
-   .pagination {
-      padding-right: 0;
-   }
+  .pagination {
+    padding-right: 0;
+  }
 
-   h1 {
-      font-size: 2em;
-   }
+  h1 {
+    font-size: 2em;
+  }
 
-   h2 {
-      font-size: 1.75em;
-   }
+  h2 {
+    font-size: 1.75em;
+  }
 
-   h3 {
-      font-size: 1.5em;
-   }
+  h3 {
+    font-size: 1.5em;
+  }
 
-   h4 {
-      font-size: 1.25em;
-   }
+  h4 {
+    font-size: 1.25em;
+  }
 
-   #toc-button {
-      top: 10px;
-      right: 10px;
-      width: 50px;
-      height: 50px;
-   }
+  #toc-button {
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+  }
 }

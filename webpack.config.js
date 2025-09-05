@@ -15,7 +15,7 @@ module.exports = {
     port: '3000',
     static: {
       directory: path.join(__dirname, 'public')
-},
+    },
     open: true,
     hot: true,
     liveReload: true,
@@ -26,13 +26,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx|ts|tsx)$/, 
-        exclude: /node_modules/, 
-        use: 'babel-loader', 
+        test: /\.(js|jsx|ts|tsx)$/,
+        exclude: /node_modules/,
+        use: 'babel-loader',
       },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(JPG|jpg|png)$/,
+        use: ['url-loader'],
       },
     ],
   },
