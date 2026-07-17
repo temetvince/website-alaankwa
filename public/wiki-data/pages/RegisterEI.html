@@ -1,0 +1,45 @@
+<p>It is strongly recommend using X-Studio with these instructions.
+</p><p>If your mod has globals or other data that needs to be exported or imported using LU's system, read this thing.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Basics"><span class="tocnumber">1</span> <span class="toctext">Basics</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Setup_Script"><span class="tocnumber">2</span> <span class="toctext">Setup Script</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Export_Script"><span class="tocnumber">3</span> <span class="toctext">Export Script</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Import_Script"><span class="tocnumber">4</span> <span class="toctext">Import Script</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Basics">Basics</span></h2>
+<p>There's three scripts you'll have to copy:
+</p><p><b>setup.EI.Template</b><br />
+<b>Z.EmpireCopy.Template.Export</b><br />
+<b>Z.EmpireCopy.Template.Import</b><br />
+</p><p>Copy the files.  <i>Template</i> in these files should be renamed to a name that will be consistent with your mods name.  For example, we'll name it <i>JouXMissions</i>.  Your files will now be named:
+</p><p><b>setup.EI.JouXMissions</b><br />
+<b>Z.EmpireCopy.JouXMissions.Export</b><br />
+<b>Z.EmpireCopy.JouXMissions.Import</b><br />
+</p>
+<h2><span class="mw-headline" id="Setup_Script">Setup Script</span></h2>
+<p>Now open up the setup script.  As it says in the template, change the three arguments of the script.
+</p>
+<ul><li> <b>Name:</b> The name we picked.  In this example, it's JouXMissions.<br /></li>
+<li> <b>FileNumber:</b>  A filename for the export.  LU uses 8382.  Use something higher than 8390.<br /></li>
+<li> <b>PageNumber:</b>  Use an unused page number.  Somewhere between 8005 and 80100 should do.<br /></li></ul>
+<p>Now, when a player loads a game, that setup script will register your two renamed scripts with the LU EI engine.  Whenever a player export his game or imports his game those two scripts will be run.
+</p>
+<h2><span class="mw-headline" id="Export_Script">Export Script</span></h2>
+<p>Open up the Export script you made.  You can edit everything between those two "=======" lines.
+</p><p>This script writes.  It writes to the file and page you specified in the setup script.
+</p><p>There's two examples in there.  The first is a simple single variable export.  Anything before a gosub Line: call will write the $Text variable.  $Text can be of any data type, but objects (ships, stations, asteroids, sectors) will not work right.  In this case, we're writing the string 'Joubarbe Likes Cats' to the file.
+</p><p>The second example is an array write.  That script is a motherfucker of an acheivement.  That one line will write any array in any structure with any number of dimensions.  One line.  Remember again, though, that objects can't be written right.
+</p><p>If you need to write an object, get creative.  For a sector, don't write the sector object, write its X and Y coordinates, and then read them back in when you get to the import script.
+</p><p>Refer to the LUV export script for reference.
+</p>
+<h2><span class="mw-headline" id="Import_Script">Import Script</span></h2>
+<p>Open up the Import script you made.  As with the export, edit only between those two double lines.
+</p><p>Import obviously needs to be read in the same order as it was exported. 
+</p><p>Here, there's two examples that will read what was written in the example exports.
+</p><p>The first will read the next line into $Text.  This $Text in the example happens to be 'Joubarbe Likes cats'.  When you make a gosub Line: call, the line is read into $Text.
+</p><p>The second will read our exported array into the variable $Return.
+</p>

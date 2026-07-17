@@ -1,362 +1,314 @@
-/* Variables */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap');
+
+/* The site is dark by design — a single "deep space" edition, the same for every
+   reader regardless of system preference. `color-scheme: dark` commits to it, so
+   the browser paints form controls and scrollbars dark to match, and a
+   `forced-colors` reader still gets a dark sheet. Every colour is a custom
+   property declared once here; anything that hardcodes a colour outside this
+   block will not theme with the rest.
+
+   Every text/background and boundary pair below is measured against WCAG 2.1 AA
+   (4.5:1 body text, 3:1 large text and UI boundaries). Changing a value here
+   means re-measuring the pairs it participates in. */
 :root {
-  --primary-color: #ffa058;
-  --secondary-color: #1f1f1f;
-  --accent-color: #ff7a33;
-  --text-color: #e0e0e0;
-  --background-color: #121212;
-  --success-color: #00b894;
-  --danger-color: #d63031;
-  --warning-color: #f39c12;
-  --info-color: #0984e3;
-  --light-color: #f1f2f6;
-  --dark-color: #2d3436;
-  --border-color: #333;
-  --shadow-color: rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+
+  /* Layout rhythm. Every band on the page is `--page-width` wide inside
+     `--gutter` padding, so section headings, cards, and hero content share one
+     left edge. Prose is held to `--measure` inside that container rather than
+     being centred in a narrower one — narrowing the container is what breaks the
+     alignment. */
+  --page-width: 1180px;
+  --gutter: 1.5rem;
+  --measure: 44rem;
+
+  /* Three faces, three jobs, no overlap. Display sets headlines and the
+     wordmark; body carries every passage meant to be read; mono is reserved for
+     the furniture — stat labels, chips, captions, buttons. */
+  --font-display: 'Oswald', 'Arial Narrow', Impact, sans-serif;
+  --font-body: 'Barlow', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'Space Mono', 'Courier New', Courier, monospace;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+
+  /* Dark edition — cold blue-blacks, the colour of space between stars.
+     `--surface-sunken` is the darkest stock and `--surface-raised` the lightest,
+     so boxed items sit above the sheet and strips sink below it. */
+  --surface: #0b1017;
+  --surface-alt: #111925;
+  --surface-sunken: #070a0f;
+  --surface-raised: #16212f;
+
+  /* Ink, cooled slightly so it reads as a lit HUD rather than a monitor's flat
+     white. `--ink-faint` is set light enough to clear WCAG AA against
+     `--surface-raised`, the lightest stock it prints on. */
+  --ink: #e8eef5;
+  --ink-soft: #b3c0cf;
+  --ink-faint: #8ea0b3;
+
+  /* Rules: `--rule` is a visible hairline that clears 3:1 against the sheet,
+     `--rule-soft` a light separator. Always draw rules with these, never with
+     `--ink` — a hairline at full ink strength glares against the dark sheet. */
+  --rule: #6b7787;
+  --rule-soft: #2a3646;
+
+  /* The one spot colour: instrument cyan, the glow of an X-Universe cockpit. In
+     the dark edition it is the bright element — light type on the sheet, and a
+     dark label when it fills a button. */
+  --accent: #45c4e6;
+  --accent-hover: #6fd3ee;
+  --on-accent: #06121a;
+
+  --header-bg: rgba(11, 16, 23, 0.9);
 }
 
-/* General Styles */
-body {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.75;
+/* Narrowing the gutter once here re-flows the header, hero, every section, and
+   the footer together. */
+@media (max-width: 720px) {
+  :root {
+    --gutter: 1rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  height: auto;
-  min-height: 100vh;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  transition: all 0.3s ease;
-  background-image:
-    radial-gradient(
-      var(--secondary-color),
-      rgba(255, 255, 255, 0.2) 5px,
-      transparent 40px
-    ),
-    radial-gradient(
-      var(--success-color),
-      rgba(255, 255, 255, 0.15) 1px,
-      transparent 30px
-    ),
-    radial-gradient(
-      var(--success-color),
-      rgba(255, 255, 255, 0.1) 2px,
-      transparent 40px
-    ),
-    radial-gradient(
-      rgba(255, 255, 255, 0.4),
-      rgba(255, 255, 255, 0.1) 2px,
-      transparent 30px
-    );
-  background-size:
-    550px 550px,
-    350px 350px,
-    250px 250px,
-    150px 150px;
-  background-position:
-    0 0,
-    40px 60px,
-    130px 270px,
-    70px 100px;
 }
 
-.root {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+html {
+  scroll-behavior: smooth;
 }
 
-/* Container */
-.container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 30px;
-  background-color: var(--secondary-color);
-  box-shadow: 0 4px 20px var(--shadow-color);
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  border: 2px solid var(--success-color);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
-/* Headings */
-h1 {
-  font-size: 3em;
-  text-align: center;
-  margin-bottom: 15px;
-  color: var(--primary-color);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+body {
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  min-height: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1 small {
-  font-size: 0.5em;
-  display: block;
-  margin-top: 10px;
-  font-weight: 300;
-  color: #d1d1d1;
-}
-
-h2 {
-  font-size: 2.25em;
-  margin-top: 40px;
-  border-bottom: 3px solid var(--primary-color);
-  padding-bottom: 15px;
-  color: var(--primary-color);
-  text-transform: uppercase;
-}
-
-h3 {
-  font-size: 1.75em;
-  margin-top: 30px;
-  color: var(--accent-color);
-}
-
+h1,
+h2,
+h3,
 h4 {
-  font-size: 1.5em;
-  margin-top: 25px;
-  color: #ffc18e;
+  font-family: var(--font-display);
+  color: var(--ink);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 
-/* Paragraphs */
-p {
-  margin: 20px 0;
-  font-size: 1.1em;
-  color: #d1d1d1;
-}
-
-/* Lists */
-ol,
-ul {
-  margin-left: 25px;
-  margin-bottom: 25px;
-}
-
-li {
-  margin-bottom: 12px;
-  font-size: 1.05em;
-  color: #d1d1d1;
-}
-
-/* Code Blocks */
-code {
-  background-color: #2e2e2e;
-  border: 1px solid var(--border-color);
-  padding: 4px 8px;
-  border-radius: 4px;
-  color: var(--primary-color);
-  font-family: 'Courier New', Courier, monospace;
-}
-
-/* Links */
 a {
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: color 0.2s ease;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 a:hover {
-  color: var(--accent-color);
-  text-decoration: underline;
+  color: var(--accent-hover);
 }
 
-/* Horizontal Rule */
-hr {
-  border: 0;
-  height: 2px;
-  background: var(--primary-color);
-  margin: 50px 0;
+/* One focus indicator for every interactive element, drawn in the accent so it
+   clears 3:1 against the sheet (success criterion 1.4.11). Never remove it. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
 }
 
-/* Table of Contents */
-ol a {
-  font-size: 1.1em;
-  color: var(--accent-color);
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-ol a:hover {
-  color: var(--accent-color);
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Special Text Classes */
-.tip {
-  background-color: #292929;
-  border-left: 8px solid var(--primary-color);
-  padding: 15px;
-  margin: 30px 0;
-  border-radius: 4px;
-  color: var(--accent-color);
-  font-style: italic;
-}
-
-.author {
-  font-size: 1.1em;
-  color: var(--accent-color);
-  text-align: center;
-}
-
-/* Table Styles */
-table {
+/* The single content column shared by every page. */
+.container {
   width: 100%;
-  border-collapse: collapse;
-  margin: 30px 0;
-  background-color: var(--secondary-color);
-  border-radius: 8px;
+  max-width: var(--page-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Visually hidden but available to assistive tech and keyboard focus. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
   overflow: hidden;
-  box-shadow: 0 4px 15px var(--shadow-color);
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-th,
-td {
-  border: 1px solid var(--border-color);
-  padding: 12px;
+/* Skip link: hidden until focused, then pinned to the top-left so a keyboard
+   user can jump straight past the header into the page. */
+.skip-link {
+  position: absolute;
+  left: var(--space-2);
+  top: -100%;
+  z-index: 100;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: var(--space-2);
+  color: var(--on-accent);
+}
+
+/* Buttons are set in mono with a stencil-label feel: square corners, heavy
+   tracking, no shadow. */
+.button {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 0.95rem 1.6rem;
+  border: 1px solid transparent;
+  cursor: pointer;
   text-align: center;
-  font-size: 1em;
-  color: var(--text-color);
-}
-
-th {
-  background-color: var(--primary-color);
-  color: var(--background-color);
-  font-weight: bold;
-}
-
-td {
-  background-color: #2e2e2e;
-}
-
-tr:nth-child(even) td {
-  background-color: #242424;
-}
-
-/* Emphasized Text */
-em {
-  font-style: italic;
-  color: var(--accent-color);
-}
-
-/* Table of Contents Buttons */
-ol button {
-  background-color: transparent;
-  border: none;
-  color: var(--accent-color);
-  cursor: pointer;
-  font-size: 1.1em;
-  text-align: left;
-  width: 100%;
-  padding: 5px 0;
+  text-decoration: none;
   transition:
-    color 0.2s ease,
-    background-color 0.2s ease;
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 
-ol button:hover {
-  color: var(--accent-color);
-  background-color: rgba(255, 255, 255, 0.1);
-  text-decoration: underline;
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
 }
 
-/* Pagination Buttons */
-.pagination {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
+.button:hover {
+  text-decoration: none;
 }
 
-.pagination button {
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 4px;
-  color: var(--background-color);
-  cursor: pointer;
-  font-size: 1em;
-  padding: 8px 16px;
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
+.button-primary {
+  background: var(--accent);
+  color: var(--on-accent);
+  border-color: var(--accent);
 }
 
-.pagination button:hover {
-  background-color: var(--accent-color);
-  color: #ffffff;
+.button-primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--on-accent);
 }
 
-.pagination button:disabled {
-  background-color: #b3b3b3;
-  color: #666666;
+.button-secondary {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--rule);
+}
+
+.button-secondary:hover {
+  background: var(--ink);
+  color: var(--surface);
+}
+
+/* A disabled action reads as inert: dimmed, no pointer, no focus target. Used
+   for downloads whose mirror is not yet wired. */
+.button[aria-disabled='true'] {
+  background: transparent;
+  color: var(--ink-faint);
+  border-color: var(--rule-soft);
   cursor: not-allowed;
+  pointer-events: none;
 }
 
-.pagination span {
-  color: #d1d1d1;
-  font-size: 1em;
+/* One boxed-item shell for every grid on the page: a hairline frame with a
+   heavy cyan top rule and square corners. Content differentiates the boxes; the
+   container never does. */
+.card {
+  background: var(--surface-raised);
+  border: 1px solid var(--rule-soft);
+  border-top: 3px solid var(--accent);
+  padding: var(--space-3);
 }
 
-/* Table of Contents Button */
-#toc-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: var(--primary-color);
-  color: var(--background-color);
-  border: none;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  font-size: 1.2em;
-  font-weight: bold;
-  text-align: center;
-  cursor: pointer;
-  box-shadow: 0 4px 10px var(--shadow-color);
-  transition:
-    background-color 0.2s ease,
-    transform 0.2s ease;
-  z-index: 1000; /* Ensure it stays on top of other elements */
+.card h3 {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-1);
 }
 
-#toc-button:hover {
-  background-color: var(--accent-color);
-  transform: scale(1.1);
+.card p {
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  text-transform: none;
 }
 
-#toc-button:focus {
-  outline: none;
+/* Shared card grid. Override `--card-min` to change the column count; the gap
+   and wrapping behaviour stay constant across sections. */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--card-min, 17rem), 1fr));
+  gap: var(--space-3);
+  list-style: none;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .container {
-    padding: 20px;
-    margin: 20px;
-  }
+/* Shared page shell: top and bottom breathing room, one `h1`, a lead paragraph
+   held to the reading measure. Reused by the downloads, wiki, and 404 pages. */
+.page {
+  padding-block: var(--space-5);
+}
 
-  .pagination {
-    padding-right: 0;
-  }
+.page > h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin-bottom: var(--space-3);
+}
 
-  h1 {
-    font-size: 2em;
-  }
+.page__lead {
+  max-width: var(--measure);
+  color: var(--ink-soft);
+  font-size: 1.15rem;
+  margin-bottom: var(--space-3);
+}
 
-  h2 {
-    font-size: 1.75em;
-  }
-
-  h3 {
-    font-size: 1.5em;
-  }
-
-  h4 {
-    font-size: 1.25em;
-  }
-
-  #toc-button {
-    top: 10px;
-    right: 10px;
-    width: 50px;
-    height: 50px;
-  }
+/* Small mono label above a heading — a kicker, in editorial terms. */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
 }

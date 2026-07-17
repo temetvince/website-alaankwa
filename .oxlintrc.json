@@ -1,0 +1,64 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+
+  // Safety plugins only. `style` and `restriction` categories are deliberately
+  // NOT enabled: they enforce taste (no-ternary, jsx-no-literals, sort-imports),
+  // not correctness, and cost churn without buying protection.
+  "plugins": [
+    "typescript",
+    "unicorn",
+    "oxc",
+    "react",
+    "react-perf",
+    "jsx-a11y",
+    "promise",
+    "import"
+  ],
+
+  // Everything protective is an error. `nursery` is excluded: unstable by definition.
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "perf": "error",
+    "pedantic": "error"
+  },
+
+  "env": {
+    "builtin": true
+  },
+
+  "rules": {
+    // Side-effect CSS imports (`import './App.css'`) are how webpack ingests styles.
+    // The rule documents this exact allowlist.
+    "import/no-unassigned-import": ["error", { "allow": ["**/*.css"] }],
+
+    // Typography, not correctness: React escapes text nodes already.
+    "react/no-unescaped-entities": "off",
+
+    // Automatic JSX runtime (`jsx: react-jsx` + Babel's default). No React import
+    // is needed, and importing one is a `noUnusedLocals` error. oxlint has no
+    // react.runtime setting, so these must be disabled by hand.
+    "react/react-in-jsx-scope": "off",
+
+    // Line count is not a correctness property.
+    "eslint/max-lines-per-function": "off"
+  },
+
+  "overrides": [
+    {
+      // react-router's `<Route element={<Home />} />` is its required API,
+      // so jsx-no-jsx-as-prop cannot be satisfied here. Scoped, not global.
+      "files": ["src/App.tsx"],
+      "rules": {
+        "react-perf/jsx-no-jsx-as-prop": "off"
+      }
+    }
+  ],
+
+  "options": {
+    "typeAware": true,
+    "typeCheck": true,
+    "denyWarnings": true,
+    "reportUnusedDisableDirectives": "error"
+  }
+}

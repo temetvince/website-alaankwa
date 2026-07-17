@@ -1,0 +1,265 @@
+{
+  "home": "Main_Page",
+  "sections": [
+    {
+      "heading": "Start here",
+      "pages": [
+        {
+          "slug": "Main_Page",
+          "title": "Litcube's Universe"
+        },
+        {
+          "slug": "What_is",
+          "title": "What is Litcube's Universe?"
+        },
+        {
+          "slug": "Installation",
+          "title": "LU Setup Guide"
+        },
+        {
+          "slug": "CleanInstall",
+          "title": "Clean Install"
+        },
+        {
+          "slug": "Download",
+          "title": "Downloads"
+        },
+        {
+          "slug": "RegisterEI",
+          "title": "Modders Resource: Registering Export/Imports"
+        },
+        {
+          "slug": "FAQ",
+          "title": "Frequently Asked Question (FAQ)"
+        },
+        {
+          "slug": "Contactme",
+          "title": "Contacting Litcube & The LU Team"
+        },
+        {
+          "slug": "Acknowledgements",
+          "title": "Acknowledgements"
+        }
+      ]
+    },
+    {
+      "heading": "Changelogs",
+      "pages": [
+        {
+          "slug": "Change_Log",
+          "title": "Change Log"
+        },
+        {
+          "slug": "Change_Log_EI",
+          "title": "EI Change Log"
+        },
+        {
+          "slug": "BugList",
+          "title": "For Future Updates"
+        }
+      ]
+    },
+    {
+      "heading": "Features",
+      "pages": [
+        {
+          "slug": "Features",
+          "title": "Features & Changes"
+        },
+        {
+          "slug": "Feature_Music",
+          "title": "A Word on Music"
+        },
+        {
+          "slug": "Feature_BugFix",
+          "title": "Albion Prelude Bug Fixes"
+        },
+        {
+          "slug": "Feature_UniBail",
+          "title": "Bailing"
+        },
+        {
+          "slug": "Feature_Balance",
+          "title": "Balance"
+        },
+        {
+          "slug": "Feature_Bounce",
+          "title": "Bounce"
+        },
+        {
+          "slug": "Feature_CCS",
+          "title": "Carrier Command Software Update"
+        },
+        {
+          "slug": "Feature_ComplexManager",
+          "title": "Complex Management"
+        },
+        {
+          "slug": "Feature_Courier",
+          "title": "Courier"
+        },
+        {
+          "slug": "Feature_Dashboards",
+          "title": "Dashboards"
+        },
+        {
+          "slug": "Feature_DockAgent",
+          "title": "Dock Agent"
+        },
+        {
+          "slug": "Feature_DockWareMgr",
+          "title": "Dockware Manager"
+        },
+        {
+          "slug": "Feature_DMS",
+          "title": "Dynamic Menu System"
+        },
+        {
+          "slug": "Feature_EJ",
+          "title": "Emergency Jump"
+        },
+        {
+          "slug": "Feature_Encyclopedia",
+          "title": "Encyclopedia Update"
+        },
+        {
+          "slug": "Feature_ECS",
+          "title": "Explorer Command Software"
+        },
+        {
+          "slug": "Feature_EI",
+          "title": "Export & Import"
+        },
+        {
+          "slug": "Feature_FLC",
+          "title": "FLC"
+        },
+        {
+          "slug": "Feature_Freighter",
+          "title": "Freighter"
+        },
+        {
+          "slug": "Feature_God",
+          "title": "GoD Changes"
+        },
+        {
+          "slug": "Feature_GUI",
+          "title": "GUI"
+        },
+        {
+          "slug": "Feature_Perf",
+          "title": "High Performance"
+        },
+        {
+          "slug": "Feature_HK",
+          "title": "Hotkeys"
+        },
+        {
+          "slug": "Feature_MCT",
+          "title": "Marine Combat Training"
+        },
+        {
+          "slug": "Feature_MLCC",
+          "title": "Military Logistics Command Center"
+        },
+        {
+          "slug": "Feature_MBMD",
+          "title": "Missile Defence"
+        },
+        {
+          "slug": "Feature_MobileMining",
+          "title": "Mobile Mining In LU"
+        },
+        {
+          "slug": "Feature_Models",
+          "title": "New Models"
+        },
+        {
+          "slug": "Feature_MSCI",
+          "title": "New Script Commands"
+        },
+        {
+          "slug": "Feature_Pathing",
+          "title": "Pathfinding"
+        },
+        {
+          "slug": "Feature_PlutarchTractorSystem",
+          "title": "Plutarch Tractor System"
+        },
+        {
+          "slug": "Feature_QuantJE",
+          "title": "Quantum Jumpgate Extension"
+        },
+        {
+          "slug": "Feature_QS",
+          "title": "Quickshuttles"
+        },
+        {
+          "slug": "Feature_OCV",
+          "title": "Revelation, The Omicron Channel Virus (OCV)"
+        },
+        {
+          "slug": "Feature_SCH",
+          "title": "Saturn Complex Hub"
+        },
+        {
+          "slug": "Feature_Compend",
+          "title": "Ship Compendium"
+        },
+        {
+          "slug": "Feature_StationAgent",
+          "title": "Station Agent"
+        },
+        {
+          "slug": "Feature_Stock",
+          "title": "Stock Exchange"
+        },
+        {
+          "slug": "Feature_SCS",
+          "title": "Supply Command Software"
+        },
+        {
+          "slug": "Feature_Template",
+          "title": "Template Manager"
+        },
+        {
+          "slug": "Feature_Phanon",
+          "title": "The Phanon Corporation"
+        },
+        {
+          "slug": "Feature_TradeSearch",
+          "title": "Trade Product Search"
+        },
+        {
+          "slug": "Feature_TradeReport",
+          "title": "Trade Reports"
+        },
+        {
+          "slug": "Feature_Tug",
+          "title": "Tug"
+        },
+        {
+          "slug": "Feature_UniTrader",
+          "title": "Universe & Sector Traders"
+        }
+      ]
+    },
+    {
+      "heading": "Scripting",
+      "pages": [
+        {
+          "slug": "LUScriptCannon",
+          "title": "Scripting Canon"
+        },
+        {
+          "slug": "LocalVariables",
+          "title": "Local Variable Object Support"
+        },
+        {
+          "slug": "SignalTargeted",
+          "title": "Signal Targeted"
+        }
+      ]
+    }
+  ]
+}

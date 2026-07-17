@@ -1,0 +1,141 @@
+/* A layered radial/linear gradient paints deep space with a cyan horizon glow —
+   no image, so hero text always sits on a solid dark backdrop. */
+.hero {
+  background:
+    radial-gradient(
+      ellipse 90% 60% at 50% 0%,
+      rgba(69, 196, 230, 0.16),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 85% 20%,
+      rgba(69, 196, 230, 0.08),
+      transparent 60%
+    ),
+    linear-gradient(180deg, var(--surface-sunken), var(--surface));
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.hero__inner {
+  padding-block: var(--space-6) var(--space-5);
+}
+
+.hero__title {
+  font-size: clamp(3rem, 12vw, 7rem);
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-2);
+}
+
+.hero__lead {
+  max-width: var(--measure);
+  color: var(--ink-soft);
+  font-size: 1.2rem;
+  margin-bottom: var(--space-4);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* Even vertical rhythm between the stacked content bands. */
+.home-section {
+  padding-block: var(--space-5);
+}
+
+.home-section + .home-section {
+  padding-top: 0;
+}
+
+.home-section h2 {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  margin-bottom: var(--space-3);
+}
+
+.home-prose {
+  max-width: var(--measure);
+}
+
+.home-prose p {
+  color: var(--ink-soft);
+  margin-bottom: var(--space-2);
+}
+
+.home-prose strong {
+  color: var(--ink);
+}
+
+/* The mothership points: a bordered list with a heavy cyan tick, set wider than
+   body prose because each line is a self-contained claim. */
+.mothership-list {
+  list-style: none;
+  max-width: 52rem;
+  margin-top: var(--space-3);
+  display: grid;
+  gap: var(--space-2);
+}
+
+.mothership-list__item {
+  position: relative;
+  padding: var(--space-2) var(--space-3) var(--space-2) var(--space-4);
+  background: var(--surface-alt);
+  border: 1px solid var(--rule-soft);
+  border-left: 3px solid var(--accent);
+  color: var(--ink-soft);
+}
+
+.mothership-list__item::before {
+  content: '›';
+  position: absolute;
+  left: 1rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.feature-grid {
+  --card-min: 17rem;
+}
+
+/* Two wide cards for the gamestarts; falls to one column when it must. */
+.gamestart-grid {
+  --card-min: 24rem;
+}
+
+/* Closing call-to-action band: copy on the left, actions on the right, wrapping
+   to a stack on narrow screens. */
+.home-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  background: var(--surface-alt);
+  border: 1px solid var(--rule-soft);
+  border-top: 3px solid var(--accent);
+  padding: var(--space-4);
+}
+
+.home-cta h2 {
+  margin-bottom: var(--space-2);
+}
+
+.home-cta__text {
+  color: var(--ink-soft);
+  max-width: 34rem;
+}
+
+.home-cta__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.home-cta__link {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

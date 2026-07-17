@@ -1,0 +1,22 @@
+<p>In the standard X3AP Game the following objects supported script local variables:
+</p>
+<ul><li> Ship</li>
+<li> Station</li>
+<li> Sector (Since Version 2.5)</li></ul>
+<p>In LU (Since version 1.3.2) the following objects support local variables:
+</p>
+<ul><li> Ship</li>
+<li> Station</li>
+<li> Sector</li>
+<li> Asteroid/Debris</li>
+<li> Gate</li>
+<li> Race (Since version 1.3.3)</li></ul>
+<p>In LU 1.3.3 Race objects gained support for local variables, example:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre>$Race = [Argon]
+$Race->set local variable: name='test' value=42
+$Value = $Race->get local variable: name='test'
+write to player logbook $Value
+
+Output:
+    42</pre></div>

@@ -1,0 +1,63 @@
+/* Sticky masthead. The translucent sheet keeps content legible as it scrolls
+   under, and the hairline bottom rule separates it from the page. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--header-bg);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  min-height: 4rem;
+  flex-wrap: wrap;
+}
+
+.site-header__brand {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.site-header__brand:hover {
+  color: var(--accent);
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.site-nav__link {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav__link:hover {
+  color: var(--ink);
+}
+
+/* The current section is marked by both colour and a persistent underline, so
+   the cue does not rely on colour alone (success criterion 1.4.1). */
+.site-nav__link.is-active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
