@@ -87,7 +87,18 @@ module.exports = (_env, argv) => {
         },
         {
           test: /\.css$/,
-          use: ['style-loader', 'css-loader'],
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              /* A root-absolute `url(/…)` names a file served verbatim from the
+                 `public/` copy, not a module to bundle. css-loader would
+                 otherwise try to resolve it against the filesystem and fail, so
+                 it is left untouched to be fetched at runtime. Relative and
+                 aliased URLs still resolve through the asset module above. */
+              options: { url: { filter: (url) => !url.startsWith('/') } },
+            },
+          ],
         },
         {
           /* Webpack 5 asset modules, not `url-loader`: an image under 8 KB is

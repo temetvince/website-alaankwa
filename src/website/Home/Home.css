@@ -1,19 +1,72 @@
-/* A layered radial/linear gradient paints deep space with a cyan horizon glow —
-   no image, so hero text always sits on a solid dark backdrop. */
+/* The mothership screenshot fills the hero behind a left-weighted dark scrim.
+   The photo sits on `::before`, mirrored so the ship reads right-to-left, and
+   the scrim on `::after` paints above it. `isolation` opens a stacking context
+   so both layers stay behind the copy at negative `z-index`, leaving the content
+   at the natural level. The image lives in `public/` and is copied to the site
+   root, so it is referenced by absolute URL rather than imported. */
 .hero {
-  background:
+  position: relative;
+  isolation: isolate;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+/* The photo, mirrored on the horizontal axis so its composition reads
+   right-to-left. `scaleX(-1)` is a static flip, not motion, so it is left in
+   place under `prefers-reduced-motion`. */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url('/background.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transform: scaleX(-1);
+}
+
+/* The scrim over the photo: near-opaque on the left, where the copy sits, so
+   every text pair there clears WCAG AA over the image; it fades right so the
+   ship shows through. A cyan glow at the top carries the cockpit accent, and a
+   bottom fade settles the bright lower nebula into the page surface. */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
     radial-gradient(
       ellipse 90% 60% at 50% 0%,
-      rgba(69, 196, 230, 0.16),
+      rgba(69, 196, 230, 0.18),
       transparent 70%
     ),
-    radial-gradient(
-      ellipse 60% 50% at 85% 20%,
-      rgba(69, 196, 230, 0.08),
-      transparent 60%
+    linear-gradient(
+      90deg,
+      rgba(7, 10, 15, 0.94) 0%,
+      rgba(7, 10, 15, 0.7) 50%,
+      rgba(7, 10, 15, 0.35) 100%
     ),
-    linear-gradient(180deg, var(--surface-sunken), var(--surface));
-  border-bottom: 1px solid var(--rule-soft);
+    linear-gradient(0deg, var(--surface) 0%, rgba(7, 10, 15, 0) 55%);
+}
+
+/* A reader who asks for more contrast, and any forced-colors sheet, drops the
+   photo for the solid gradient — the copy never competes with the image
+   (success criteria 1.4.3, 1.4.6). */
+@media (prefers-contrast: more), (forced-colors: active) {
+  .hero::before {
+    display: none;
+  }
+
+  .hero::after {
+    background-image:
+      radial-gradient(
+        ellipse 90% 60% at 50% 0%,
+        rgba(69, 196, 230, 0.16),
+        transparent 70%
+      ),
+      linear-gradient(180deg, var(--surface-sunken), var(--surface));
+  }
 }
 
 .hero__inner {
