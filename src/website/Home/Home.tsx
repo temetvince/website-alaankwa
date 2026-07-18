@@ -77,7 +77,7 @@ export default function Home() {
           <h1 className='hero__title'>ALAANKWA</h1>
           <p className='hero__lead'>
             X3: Albion Prelude is one of the deepest space sandboxes ever built.
-            Litcube’s Universe rebuilds it into an empire management simulator.
+            Litcube’s Universe reimagines it as an empire management simulator.
             Alaankwa is the layer on top: mobile motherships that construct
             whole fleets, a stack of quality-of-life upgrades, and two fresh
             ways to begin.
