@@ -56,6 +56,23 @@ them, so updating a link is a one-line change.
 
 ## Deploying
 
-The build is a static site in `dist/`. Because routing is client-side, the host must serve `index.html` for
-any unmatched path (SPA fallback) so that deep links such as `/wiki/FAQ` load. Most static hosts have a
-one-line setting or redirect rule for this. The webpack dev server already does it via `historyApiFallback`.
+The build is a static site in `dist/`. Routing is client-side, so deep links such as `/wiki/FAQ` depend on
+two things.
+
+**The site is served from the domain root.** `index.html` references the bundle, the favicon, and every
+static asset by root-absolute URL, such as `/index_bundle.<hash>.js`. That is what lets the same HTML file
+work from any route. Webpack's `output.publicPath` sets this, and hosting the site under a sub-path would
+break it.
+
+**The host serves `index.html` for any path that is not a file.** This is the SPA fallback. Configure it as
+a rewrite that answers with status `200`. An error-page fallback, which serves `index.html` with status
+`404`, still renders the page. It also tells crawlers and link previews that the page does not exist. The
+webpack dev server does the rewrite via `historyApiFallback`.
+
+On AWS Amplify Hosting, the rewrite is one rule under *Rewrites and redirects*:
+
+| Field | Value |
+| --- | --- |
+| Source address | `</^[^.]+$\|\.(?!(css\|gif\|ico\|jpg\|jpeg\|js\|json\|png\|txt\|svg\|webp\|html\|xml)$)([^.]+$)/>` |
+| Target address | `/index.html` |
+| Type | `200 (Rewrite)` |

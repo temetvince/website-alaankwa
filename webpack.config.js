@@ -22,6 +22,13 @@ module.exports = (_env, argv) => {
 
     output: {
       path: path.resolve(__dirname, './dist'),
+      /* Root-absolute, so the bundle and asset URLs injected into `index.html`
+         resolve the same from every route. The host serves that one HTML file
+         for deep links such as `/wiki/FAQ`; a relative `index_bundle.js` there
+         would resolve to `/wiki/index_bundle.js`, which does not exist, and the
+         page would load with no script at all. The site must therefore be
+         served from the domain root. */
+      publicPath: '/',
       /* The content hash lets a host cache the bundle indefinitely: the name
          changes whenever the contents do. `clean` is what stops previously
          hashed bundles from accumulating in `dist`. */
